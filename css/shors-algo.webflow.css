@@ -244,6 +244,7 @@ a {
 .feature-content {
   width: 50vw;
   max-width: 450px;
+  text-align: center;
   border: 1px #000;
   flex: none;
   padding-left: 4vw;
@@ -648,8 +649,10 @@ a {
 
 .feature-wrap {
   width: 90vw;
+  text-align: center;
   border: 1px #000;
   flex-direction: row;
+  flex: 1;
   justify-content: space-around;
   align-items: center;
   margin-top: 10vh;
