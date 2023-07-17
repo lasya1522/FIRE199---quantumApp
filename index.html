@@ -29,6 +29,7 @@
           <nav role="navigation" class="nav-menu-2 w-nav-menu">
             <a href="#about" class="nav-link w-nav-link">Introduction</a>
             <a href="#important-terms" class="nav-link w-nav-link">Important Terms</a>
+            <a href="#process" class="nav-link w-nav-link">Process</a>
             <a href="#features" class="nav-link w-nav-link">Circuit</a>
             <a href="#how-to-use" class="nav-link w-nav-link">Simulation</a>
             <a href="#applications" class="nav-link w-nav-link">Application</a>
@@ -65,7 +66,7 @@
     <div class="wrapper"></div>
 </div>
 
-<<div id="important-terms" class="section wf-section">
+<div id="important-terms" class="section wf-section">
   <div data-w-id="d5ba5e87-b9ed-633f-6f62-a83bb76a24a6" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="wrap">
     <h2>Important Terms</h2>
     <div class="button-wrap"></div>
@@ -89,6 +90,43 @@
     <div class="term">
       <h3>Quantum Fourier Transform</h3>
       <p class="term-definition"><strong style="color: red;">Quantum Fourier Transform:</strong> The QFT operates on a quantum state composed of qubits and transforms it from the time domain to the frequency domain. It converts the amplitudes of the qubits, representing a superposition of states, into a superposition of frequency states. In other words, it transforms the quantum state from a representation of values into a representation of frequencies. By utilizing the QFT, quantum algorithms can efficiently process and manipulate the information encoded in quantum superposition, facilitating parallel computations on multiple states simultaneously.</p>
+    </div>
+  </div>
+</div>
+
+
+<div id="process" class="section wf-section">
+  <div data-w-id="d5ba5e87-b9ed-633f-6f62-a83bb76a24a6" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="wrap">
+    <h2>Process</h2>
+    <div class="button-wrap"></div>
+    <p class="paragraph-3">Shor's algorithm involves several main steps to factorize a large number efficiently. These are the key steps:</p>
+    <div class="term">
+      <h3>Initialization</h3>
+      <p class="term-definition"><strong style="color: yellow;">Initialization:</strong> Start by preparing two sets of qubits: the control qubits and the target qubits. Initialize the control qubits to represent all possible values from 0 to (N-1), where N is the number to be factorized. Initialize the target qubits to a known state.</p>
+    </div>
+    <div class="term">
+      <h3>Quantum Fourier Transform (QFT)</h3>
+      <p class="term-definition"><strong style="color: yellow">Quantum Fourier Transform (QFT):</strong> Apply the Quantum Fourier Transform to the control qubits. The QFT transforms the control qubits from a superposition of values into a superposition of frequency states, revealing the underlying periodicity in the quantum state.</p>
+    </div>
+    <div class="term">
+      <h3>Modular Exponentiation</h3>
+      <p class="term-definition"><strong style="color: yellow;">Modular Exponentiation:</strong> Apply a modular exponentiation operation to the target qubits based on the value of the control qubits. This operation raises the target qubits to the power of the control qubits modulo N. It effectively computes a function of the form f(x) = a^x mod N, where a is a randomly chosen value.</p>
+    </div>
+    <div class="term">
+      <h3>Quantum Measurement</h3>
+      <p class="term-definition"><strong style="color: yellow;">Quantum Measurement:</strong> Perform a quantum measurement on the control qubits. The measurement collapses the superposition, providing a classical output that represents a periodic sequence derived from the quantum state. The measured values provide information related to the factors of the number N.</p>
+    </div>
+    <div class="term">
+      <h3>Classical Post-processingt</h3>
+      <p class="term-definition"><strong style="color: ryellow;">Classical Post-processing:</strong> Take the measurement results and perform classical post-processing. Analyze the measured periodic sequence to extract the period, which is crucial for factorization. This step typically involves applying number theory techniques such as continued fractions to approximate the period.</p>
+    </div>
+    <div class="term">
+      <h3>Continued Fractions:</h3>
+      <p class="term-definition"><strong style="color: yellow;">Continued Fractions:</strong> Use continued fraction expansion on the approximations obtained from the previous step to determine the period more accurately. Continued fractions provide rational approximations that reveal the periodic structure of the sequence.</p>
+    </div>
+    <div class="term">
+      <h3>Greatest Common Divisor (GCD)</h3>
+      <p class="term-definition"><strong style="color: yellow;">Greatest Common Divisor (GCD):</strong> Calculate the greatest common divisor (GCD) between the factors obtained from the continued fractions and the original number N. The GCD computation helps identify the prime factors of N.</p>
     </div>
   </div>
 </div>
