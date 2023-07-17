@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Shor's Algorithm Demonstration</h2>
+
+<p>Enter a number to be factored (N):</p>
+<input id="N" type="number">
+
+<p>Enter another number (a):</p>
+<input id="a" type="number">
+
+<button onclick="calculate()">Calculate</button>
+
+<p id="result"></p>
+
+<script>
+function calculate() {
+  var N = document.getElementById("N").value;
+  var a = document.getElementById("a").value;
+  
+  // Find the period
+  var r = findPeriod(a, N);
+  
+  // Calculate p and q
+  var p = gcd(Math.pow(a, r/2) + 1, N);
+  var q = gcd(Math.pow(a, r/2) - 1, N);
+
+  var stepStr = "Let N = " + N + ", a = " + a + ", and r = " + r + ". <br>";
+  stepStr += "We can find that a^r = " + Math.pow(a, r) + " mod " + N + " = 1. <br>";
+  stepStr += "Then, we calculate (a^(r/2) + 1) = " + (Math.pow(a, r/2) + 1) + " and (a^(r/2) - 1) = " + (Math.pow(a, r/2) - 1) + ". <br>";
+  stepStr += "The greatest common divisor of (a^(r/2) + 1) and N is " + p + ", and for (a^(r/2) - 1) and N is " + q + ". <br>";
+  stepStr += "So, the factors of " + N + " are " + p + " and " + q + ".";
+
+  document.getElementById("result").innerHTML = stepStr;
+}
+
+// Helper function to calculate the period
+function findPeriod(a, N) {
+  var val = a;
+  var r = 1;
+  while (val % N != 1) {
+    val = (val * a) % N;
+    r++;
+  }
+  return r;
+}
+
+// Helper function to calculate the greatest common divisor (gcd)
+function gcd(a, b) {
+  if (b == 0) {
+    return a;
+  } else {
+    return gcd(b, a % b);
+  }
+}
+</script>
+
+</body>
+</html>

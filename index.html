@@ -71,8 +71,50 @@
       <div class="feature-image"></div>
     </div>
     <div class="title">Simulation</div>
-    <h2 class="black-text">Sem Risus Elit Vestibulum</h2>
-    <p class="paragraph-4">Nulla vitae elit libero, a pharetra augue. </p>
+    <div class="w-embed w-script">
+      <h2>Shor's Algorithm Demonstration</h2>
+      <p>Enter a number to be factored (N):</p>
+      <input id="N" type="number">
+      <p>Enter another number (a):</p>
+      <input id="a" type="number">
+      <button onclick="calculate()">Calculate</button>
+      <p id="result"></p>
+      <script>
+function calculate() {
+  var N = document.getElementById("N").value;
+  var a = document.getElementById("a").value;
+  // Find the period
+  var r = findPeriod(a, N);
+  // Calculate p and q
+  var p = gcd(Math.pow(a, r/2) + 1, N);
+  var q = gcd(Math.pow(a, r/2) - 1, N);
+  var stepStr = "Let N = " + N + ", a = " + a + ", and r = " + r + ". <br>";
+  stepStr += "We can find that a^r = " + Math.pow(a, r) + " mod " + N + " = 1. <br>";
+  stepStr += "Then, we calculate (a^(r/2) + 1) = " + (Math.pow(a, r/2) + 1) + " and (a^(r/2) - 1) = " + (Math.pow(a, r/2) - 1) + ". <br>";
+  stepStr += "The greatest common divisor of (a^(r/2) + 1) and N is " + p + ", and for (a^(r/2) - 1) and N is " + q + ". <br>";
+  stepStr += "So, the factors of " + N + " are " + p + " and " + q + ".";
+  document.getElementById("result").innerHTML = stepStr;
+}
+// Helper function to calculate the period
+function findPeriod(a, N) {
+  var val = a;
+  var r = 1;
+  while (val % N != 1) {
+    val = (val * a) % N;
+    r++;
+  }
+  return r;
+}
+// Helper function to calculate the greatest common divisor (gcd)
+function gcd(a, b) {
+  if (b == 0) {
+    return a;
+  } else {
+    return gcd(b, a % b);
+  }
+}
+</script>
+    </div>
     <div id="how-to-use" class="feature-wrap">
       <div data-w-id="0585a81c-ee42-8b56-bc8e-bd582946320a" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="feature-content"></div>
       <div class="feature-image"></div>
