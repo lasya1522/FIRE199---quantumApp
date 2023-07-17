@@ -107,10 +107,10 @@
     <section id="input"> 
       <div id="simulation" class="title">Simulation</div>
       <div class="html-embed w-embed w-script">
-      <h1>Algorithm Demonstration</h1>
+      <h2>Algorithm Demonstration</h2>
       <!-- Step 1 comprises on the beginning classical steps of Shor's 
       initialize N and a, explain modular exponentiation at its core and output a graph of the modulus vs number of modular steps-->
-      <h2>Step 1: Initialization</h2>
+      <h4>Step 1: Initialization</h4>
       <p> N represents the number we want to factor. For Shor's algorithm to properly function the number we want to factor must satisfy two conditions: </p>
       <!--List of requirements for N (bullet points)-->
       <ul style=“list-style-type:circle”>
@@ -130,9 +130,10 @@
     </section>
 
     <section id="classicalOutput">
-      <h2>Step 2: Modular Exponentiation & Period Finding</h2>
+      <h4>Step 2: Modular Exponentiation & Period Finding</h4>
       <p>After initializing N and a, we find the greatest common divisor (gcd) of a and N</p>
-      <p> We use Euclid's algorithm to calculate gcd(a,N)</p>
+      <p> We use Euclid's algorithm to calculate gcd(a,N) and so use the formula f(x) = a^x mod N</p>
+      <p> If a^1 mod N = 1, then a is a factor of N and we are done! Although, if not, we will continue this process until gcd(a,N) = 1</p>
       <button onclick="calculate()">Calculate</button>
       <p id="result"></p>
     </section>
