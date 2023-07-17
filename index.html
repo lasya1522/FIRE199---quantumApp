@@ -103,20 +103,45 @@
       <div data-w-id="cafe0045-d304-79d9-8f68-af3adaed06e9" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="feature-content"></div>
       <div class="feature-image"></div>
     </div>
-    <div id="simulation" class="title">Simulation</div>
-    <div class="html-embed w-embed w-script">
-      <h2>Algorithm Demonstration</h2>
-      <h4>Step 1: Initialization</h4>
-      <p> For Shor's algorithm to properly function the number we want to factor must satisfy two conditions: </p>
-      <checkbox> N is composite(not prime)</checkbox>
-      <checkbox> Not a power of a prime</checkbox>
+
+    <section id="input"> 
+      <div id="simulation" class="title">Simulation</div>
+      <div class="html-embed w-embed w-script">
+      <h1>Algorithm Demonstration</h1>
+      <!-- Step 1 comprises on the beginning classical steps of Shor's 
+      initialize N and a, explain modular exponentiation at its core and output a graph of the modulus vs number of modular steps-->
+      <h2>Step 1: Initialization</h2>
+      <p> N represents the number we want to factor. For Shor's algorithm to properly function the number we want to factor must satisfy two conditions: </p>
+      <!--List of requirements for N (bullet points)-->
+      <ul style=“list-style-type:circle”>
+        <li>N is composite(not prime)</li>
+        <li>N is not a power of a prime number</li>
+      </ul>
       <p>Enter a number to be factored (N):</p>
       <input id="N" type="number">
-      <p>Enter another number (a):</p>
+      <button onclick="runN()">Factor</button>
+      <checkbox> N is composite(not prime)</checkbox>
+      <checkbox> Not a power of a prime</checkbox>
+      <p>Another input value is a, a random number between 1 and N</p>
+      <p>Enter a:</p>
       <input id="a" type="number">
+      <button onclick="runA()">Continue</button>
+      
+    </section>
+
+    <section id="classicalOutput">
+      <h2>Step 2: Modular Exponentiation & Period Finding</h2>
+      <p>After initializing N and a, we find the greatest common divisor (gcd) of a and N</p>
+      <p> We use Euclid's algorithm to calculate gcd(a,N)</p>
       <button onclick="calculate()">Calculate</button>
       <p id="result"></p>
-      <script>
+    </section>
+    <section id="quantumOutput">
+
+    </section>
+
+
+<script>
 function calculate() {
   var N = document.getElementById("N").value;
   var a = document.getElementById("a").value;
