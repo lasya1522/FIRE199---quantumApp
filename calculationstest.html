@@ -2,9 +2,7 @@
 <html>
 <body>
 
-<h2>Shor's Algorithm Demonstration</h2>
-
-<p>Enter a number to be factored (N):</p>
+<p class="paragraph-2">Enter a number to be factored (N):</p>
 <input id="N" type="number">
 
 <p>Enter another number (a):</p>
@@ -19,6 +17,12 @@ function calculate() {
   var N = document.getElementById("N").value;
   var a = document.getElementById("a").value;
   
+  if(gcd(a, N) > 1){
+    return "The values of N and/or a do not meet the criteria";
+    document.getElementById("result").innerHTML = stepStr;
+
+  }
+
   // Find the period
   var r = findPeriod(a, N);
   
@@ -26,8 +30,16 @@ function calculate() {
   var p = gcd(Math.pow(a, r/2) + 1, N);
   var q = gcd(Math.pow(a, r/2) - 1, N);
 
-  var stepStr = "Let N = " + N + ", a = " + a + ", and r = " + r + ". <br>";
-  stepStr += "We can find that a^r = " + Math.pow(a, r) + " mod " + N + " = 1. <br>";
+  var stepStr = "Let N = " + N + " and a = " + a + " <br>";
+  stepStr += "We start with the equation a^r = mN + 1, where mN is some multiple of N. <br>";
+  var r2 = 1;
+  var mod = 0;
+  while (r2 <= r){
+    mod = Math.pow(a, r2)%N;
+    stepStr += a + "^" + r2 + " = " + mod + " mod " + N + ". <br>";
+    r2 += 1;
+  }
+  stepStr += "We can see that when r = " + r + ", " + Math.pow(a, r) + " mod " + N + " = 1. <br> ";
   stepStr += "Then, we calculate (a^(r/2) + 1) = " + (Math.pow(a, r/2) + 1) + " and (a^(r/2) - 1) = " + (Math.pow(a, r/2) - 1) + ". <br>";
   stepStr += "The greatest common divisor of (a^(r/2) + 1) and N is " + p + ", and for (a^(r/2) - 1) and N is " + q + ". <br>";
   stepStr += "So, the factors of " + N + " are " + p + " and " + q + ".";
