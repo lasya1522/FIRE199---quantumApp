@@ -105,30 +105,64 @@
       <div class="feature-image"></div>
     </div>
 
-    <section id="input"> 
-      <div id="simulation" class="title">Simulation</div>
-      <div class="html-embed w-embed w-script">
-      <h2>Algorithm Demonstration</h2>
-      <!-- Step 1 comprises on the beginning classical steps of Shor's 
-      initialize N and a, explain modular exponentiation at its core and output a graph of the modulus vs number of modular steps-->
-      <h4>Step 1: Initialization</h4>
-      <p> N represents the number we want to factor. For Shor's algorithm to properly function the number we want to factor must satisfy two conditions: </p>
-      <!--List of requirements for N (bullet points)-->
-      <ul style=“list-style-type:circle”>
-        <li>N is composite(not prime)</li>
-        <li>N is not a power of a prime number</li>
-      </ul>
-      <p>Enter a number to be factored (N):</p>
-      <input id="N" type="number">
-      <button onclick="runN()">Factor</button>
-      <checkbox> N is composite(not prime)</checkbox>
-      <checkbox> Not a power of a prime</checkbox>
-      <p>Another input value is a, a random number between 1 and N</p>
-      <p>Enter a:</p>
-      <input id="a" type="number">
-      <button onclick="runA()">Continue</button>
-      
-    </section>
+   
+    <head>
+      <title>Algorithm Demonstration</title>
+      <style>
+        pre {
+          background-color: #f4f4f4;
+          padding: 10px;
+          overflow-x: auto;
+        }
+      </style>
+    </head>
+    <body>
+      <section id="input"> 
+        <div id="simulation" class="title">Simulation</div>
+        <div class="html-embed w-embed w-script">
+          <h2>Algorithm Demonstration</h2>
+          
+          <!-- Step 1 comprises on the beginning classical steps of Shor's 
+          initialize N and a, explain modular exponentiation at its core and output a graph of the modulus vs number of modular steps-->
+          
+          <h4>Step 1: Initialization</h4>
+          <p> N represents the number we want to factor. For Shor's algorithm to properly function the number we want to factor must satisfy two conditions: </p>
+          
+          <!--List of requirements for N (bullet points)-->
+          <ul style="list-style-type:circle">
+            <li>N is composite (not prime)</li>
+            <li>N is not a power of a prime number</li>
+          </ul>
+          
+          <pre>
+            <code>
+              import matplotlib.pyplot as plt
+              import numpy as np
+              from qiskit import QuantumCircuit, Aer, transpile
+              from qiskit.visualization import plot_histogram
+              from math import gcd
+              from numpy.random import randint
+              import pandas as pd
+              from fractions import Fraction
+              print("Imports Successful")
+            </code>
+          </pre>
+          
+          <p>Enter a number to be factored (N):</p>
+          <input id="N" type="number">
+          <button onclick="runN()">Factor</button>
+          <checkbox> N is composite (not prime)</checkbox>
+          <checkbox> Not a power of a prime</checkbox>
+          
+          <p>Another input value is a, a random number between 1 and N</p>
+          <p>Enter a:</p>
+          <input id="a" type="number">
+          <button onclick="runA()">Continue</button>
+        </div>
+      </section>
+    </body>
+    
+    
 
     <section id="classicalOutput">
       <h4>Step 2: Modular Exponentiation & Period Finding</h4>
