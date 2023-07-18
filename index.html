@@ -108,11 +108,14 @@
     
 
    
+    <!DOCTYPE html>
+    <html>
     <head>
       <title>Interactive Kernel</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/codemirror.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.62.0/mode/python/python.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/brython/3.9.12/brython.min.js"></script>
     </head>
     <body>
       <section id="input"> 
@@ -138,10 +141,22 @@
         </div>
       </section>
       
+      <script type="text/python">
+        def runCode():
+          code = editor.getValue()
+          
+          try:
+            # Execute the code here
+            exec(code)
+          except Exception as e:
+            print(e)
+      </script>
+      
       <script>
         // Initialize CodeMirror with Python mode
-        const codeEditor = CodeMirror(document.getElementById("code-editor"), {
-          value: `import matplotlib.pyplot as plt
+        const editor = CodeMirror(document.getElementById("code-editor"), {
+          value: 
+   `import matplotlib.pyplot as plt
     import numpy as np
     from qiskit import QuantumCircuit, Aer, transpile
     from qiskit.visualization import plot_histogram
@@ -156,18 +171,18 @@
         });
         
         function runCode() {
-          const code = codeEditor.getValue();
-          
           try {
-            // Execute the code here
-            eval(code);
+            // Execute the Python code
+            Brython(1);
+            runCode();
           } catch (error) {
             console.error(error);
           }
         }
       </script>
     </body>
-   
+    </html>
+    
     
 
 
