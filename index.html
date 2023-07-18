@@ -53,6 +53,22 @@
     <div data-w-id="b126983d-9126-fc06-c81d-1318685e2add" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="wrap">
       <div id="introduction" class="title"><h2><strong>Introduction and Application</strong></h2></div>
       <div class="wrapper"></div>
+
+      <h2></h2>
+      <p class="paragraph-7">Are you tired of waiting ages for your computer to crack complex encryption codes? Well, get ready to be blown away by the mind-bending power of Shor&#x27;s algorithm! Picture this: a revolutionary mathematical wizardry that could potentially dismantle the unbreakable walls of modern cryptography in the blink of an eye. Strap in, because we&#x27;re about to embark on a mind-boggling journey through the cutting-edge realm of quantum computing, where Shor&#x27;s algorithm reigns supreme as the ultimate code-cracking superhero. Get ready to have your understanding of computational limits shattered as we dive into the enigmatic world of Shor&#x27;s algorithm and uncover its jaw-dropping implications for the future of security and cryptography.<br></p>
+      <h2>A More Technical Definition</h2>
+      <p class="paragraph-8">Shor&#x27;s algorithm is a groundbreaking mathematical method designed to solve a particular problem: factoring large numbers into their prime factors. It was invented by Peter Shor, a brilliant mathematician, and has become one of the most significant discoveries in the field of quantum computing. Here&#x27;s the gist of it: Traditional computers, like the ones we use every day, struggle to factor large numbers efficiently. This difficulty forms the basis of many encryption systems used to secure online transactions and protect sensitive information. Shor&#x27;s algorithm takes advantage of the unique properties of quantum computers, which operate using quantum bits, or qubits, instead of the classical bits of traditional computers. Qubits can exist in multiple states simultaneously, a phenomenon known as superposition, allowing quantum computers to perform certain calculations at an incredibly accelerated rate. By harnessing this power, Shor&#x27;s algorithm can rapidly find the prime factors of large numbers, a task that would take traditional computers an astronomical amount of time. This ability to factorize large numbers efficiently poses a significant threat to many encryption methods, as it could potentially render them vulnerable to attacks. In simpler terms, Shor&#x27;s algorithm is a quantum magic trick that enables computers to quickly unravel the secrets of large numbers, which has profound implications for breaking encryption codes and challenging the security of many systems that we rely on today.<br></p>
+
+
+      <h2>Shor's vs Classical Algorithm</h2>
+      <p class="paragraph-7">Shor's algorithm uses the quantum computing principles to run efficiently in polynomial time while the classical factorization can at best run at exponential time limiting the classical computer's powers. 
+        The classical algorithms can factor numbers with at most with a few hundred digits. </p>
+      <p class="paragraph-7"> The world record is d = 232, and this took roughly 2000 CPU years (approximately 17,520,000 normal years). 
+        While in the graph, you can see that the Shor's algorithm has polynomial runtime of d^3.</p>
+        <img src = "images/IMG_9394.jpg" alt = "Graph for Shor's vs Classical Algorithm">
+
+      <h2 id="important_terms">Important Terms</h2>
+
       <p class="paragraph-7">Are you tired of waiting ages for your computer to crack complex encryption codes? Well, get ready to be blown away by the mind-bending power of Shor's algorithm! Picture this: a revolutionary mathematical algorithm that could potentially dismantle the walls of modern cryptography. Get ready to have your understanding of computational limits shattered as we dive into the enigmatic world of Shor's algorithm and uncover its jaw-dropping implications for the future of security and cryptography.
         Invented in 1994 by Peter Shor, Shor's algorithm is a groundbreaking mathematical method designed to solve a particular problem: factoring large numbers into their prime factors, something that mathematicians deemed impossible for a long time.<br></p>
       <p class="paragraph-8">Why is something as trivial as factoring numbers important? RSA encryption, the encryption methodology used by everyday web browsers, bank accounts, and essentially any link starting with “https://” is based on prime factorization.</p>
@@ -94,10 +110,47 @@
       <p class="paragraph-6">Use continued fraction expansion on the approximations obtained from the previous step to determine the period more accurately. Continued fractions provide rational approximations that reveal the periodic structure of the sequence.<br></p>
       <h3 class="heading-5"><strong>Greatest Common Divisor (GCD)</strong></h3>
       <p class="paragraph-6">Calculate the greatest common divisor (GCD) between the factors obtained from the continued fractions and the original number N. The GCD computation helps identify the prime factors of N.<br></p>
+    <h3 class = "heading-5"> </h3>
+    <p class = "paragraph-7">
+      <h3>An example of Shor's Algorithm</h3>
+    <p class = "paragraph-7">
+     To factor an integer N = 21.<br><br>
+     <span class = "step">Step-1:</span> Ensure that the number N is not prime, even or an integer power of prime which can be done using classical methods.
+<br> <br><span class = "step">Step-2:</span>  Choose an integer 'q' between N^2 < q < 2N^2. (q = 512)
+<br> <br><span class = "step">Step-3:</span>  Pick a random integer x where GCD(x, N) = 1. (x = 11)
+<br> <br><span class = "step">Step-4:</span>  Then, we create 2 entangled quantum registers:<br>
+<strong>1. Input Register -</strong> containing sufficient qubits for representing numbers as big as q -1. <br>(Here, q - 1 = 511 => 9 qubits needed)
+<br><strong>2. Output Register - </strong>containing sufficient qubits for representing numbers as big as N-1. <br>(Here, N - 1 = 20 => 5 qubits needed)
+<br> <br><span class = "step">Step-5:</span>  Load the input register with an equally weighed superposition of integers from 0 to q-1. (0 to 511)
+<br> <br><span class = "step">Step-6:</span>  Load the output register with zeros.
+The total state of the system is  <img class = "stepsImages"src="images/SAstep-6.jpg" alt = "state of the system">
+
+<br> <br><span class = "step">Step-7:</span>  Apply the transformation - "x^a mod N" to each number in input register and store the result in output register.
+<br><br><img src = "images/TableForExample.jpg" class="TableForExample" alt=" Table ">
+<br> <br><span class = "step">Step-8:</span>  After measuring the output register, it will collapse to 1 result of the transformation 'c' out of 1, 11, 16, 8, 4, and 2 here. 
+<br>Let's select c = 1.
+<br> <br><span class = "step">Step-9:</span>   As the 2 registers are entangled, measuring the output register will partially collapse the input register into an equal superposition of each state between 0 and q-1 that yielded c => All numbers 'y' such that 11^y Mod 21 = 1.
+<br>Then the input register's state is[(1/√86) |0> + (1/√86) |6> + (1/√86) |12> + (1/√86) |18> + (1/√86) |24> + .... ].
+<br> The probabilities here are (1/√86) as our register is in an equal superposition of 86 values which are 0, 6, 12, ..., 510.
+<br> <br><span class = "step">Step-10:</span>  We then apply Quantum Fourier Transform (QFT) on the input register. The QFT takes a state |a> and transforms it into a state :
+<img class = "stepsImages1"src="images/SAstep10jpg.jpg" alt = "state of the system">
+<br>
+<br> <br><span class = "step">Step-11:</span>  After doing the computations with the values y that yield 11^y Mod 21 = 1, we obtain the final state of the input register to be
+<img class = "stepsImages2"src="images/SAstep11jpg.jpg" alt = "state of the system">
+<br>
+<br> <br><span class = "step">Step-12:</span> The QFT will peak the probability amplitudes at the integer multiples of (q/r) i.e. 512/6 as here r is the desired period which is 6 in this case. 
+<br>Thus, the peak probability will be at |85.33>, |170.66>, |256>, .....
+<br>As a result, we do not have an equal superposition of states, and the probability amplitudes of above states are now higher than the other states.
+<br> <br><span class = "step">Step-13:</span>  Then, we measure the state 'm' of register one and with help of q and m, we calculate the period using continuous fraction expansion of the raito of q and m.
+<br> <br><span class = "step">Step-14:</span>  Finally, using the period (P), we calculate the factors of N by taking the GCD of each x^(P/2) + 1 and x^(p/2) - 1 with N using a classical computer. <br>In our case, P = 6 and the factors are : GCD(11^(6/2) +1, 21) = 3 and GCD(11^(6/2) - 1, 21) = 7.
+
+
+    </p>
+  </p>
     </div>
   </div>
   <div class="section wf-section">
-    <!-- PUT BACK HERE IF DOESN'T WORK-->
+
 
 
  
@@ -140,7 +193,7 @@
             <div data-w-id="4593c4b7-56e8-060a-be57-648b0e08fc65" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="feature-content"></div>
           </div>
           <div class="feature-image"></div>
-        </div><img src="images/shorcircuit.png" width="1074" sizes="100vw" srcset="images/shorcircuit-p-500.png 500w, images/shorcircuit-p-800.png 800w, images/shorcircuit-p-1080.png 1080w, images/shorcircuit.png 1129w" alt="" class="image-2">
+        </div><img href="circuit.html" target ="blank" src="images/shorcircuit.png" width="1074" sizes="100vw" srcset="images/shorcircuit-p-500.png 500w, images/shorcircuit-p-800.png 800w, images/shorcircuit-p-1080.png 1080w, images/shorcircuit.png 1129w" alt="" class="image-2">
         <div class="feature-wrap reverse">
           <div data-w-id="cafe0045-d304-79d9-8f68-af3adaed06e9" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="feature-content"></div>
           <div class="feature-image"></div>

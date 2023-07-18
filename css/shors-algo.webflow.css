@@ -1239,6 +1239,29 @@ a {
   .paragraph-3 {
     text-align: center;
   }
+
+  
 }
 
+.stepsImages{
+  width: 200px;
+  height: 80px;
+}
 
+.stepsImages1{
+  width: 300px;
+  height: 80px;
+}
+
+.stepsImages2{
+  width: 380px;
+  height: 80px;
+}
+.step{
+  color: orange;
+}
+
+.TableForExample{
+  width = 300px;
+  height = 1000px;
+}
