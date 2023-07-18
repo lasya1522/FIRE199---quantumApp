@@ -65,6 +65,7 @@
       <p class="paragraph-7"> The world record is d = 232, and this took roughly 2000 CPU years (approximately 17,520,000 normal years). 
         While in the graph, you can see that the Shor's algorithm has polynomial runtime of d^3.</p>
         <img src = "images/IMG_9394.jpg" alt = "Graph for Shor's vs Classical Algorithm">
+
       <h2 id="important_terms">Important Terms</h2>
       <p class="paragraph-5"><strong>These are the definitions of some important terms that you&#x27;ll be seeing on this page:<br></strong></p>
       <h3 class="heading-4"><strong class="bold-text">Quantum Computing</strong></h3>
@@ -93,13 +94,50 @@
       <p class="paragraph-6">Use continued fraction expansion on the approximations obtained from the previous step to determine the period more accurately. Continued fractions provide rational approximations that reveal the periodic structure of the sequence.<br></p>
       <h3 class="heading-5"><strong>Greatest Common Divisor (GCD)</strong></h3>
       <p class="paragraph-6">Calculate the greatest common divisor (GCD) between the factors obtained from the continued fractions and the original number N. The GCD computation helps identify the prime factors of N.<br></p>
+    <h3 class = "heading-5"> </h3>
+    <p class = "paragraph-7">
+      <h3>An example of Shor's Algorithm</h3>
+    <p class = "paragraph-7">
+     To factor an integer N = 21.<br><br>
+     <span class = "step">Step-1:</span> Ensure that the number N is not prime, even or an integer power of prime which can be done using classical methods.
+<br> <br><span class = "step">Step-2:</span>  Choose an integer 'q' between N^2 < q < 2N^2. (q = 512)
+<br> <br><span class = "step">Step-3:</span>  Pick a random integer x where GCD(x, N) = 1. (x = 11)
+<br> <br><span class = "step">Step-4:</span>  Then, we create 2 entangled quantum registers:<br>
+<strong>1. Input Register -</strong> containing sufficient qubits for representing numbers as big as q -1. <br>(Here, q - 1 = 511 => 9 qubits needed)
+<br><strong>2. Output Register - </strong>containing sufficient qubits for representing numbers as big as N-1. <br>(Here, N - 1 = 20 => 5 qubits needed)
+<br> <br><span class = "step">Step-5:</span>  Load the input register with an equally weighed superposition of integers from 0 to q-1. (0 to 511)
+<br> <br><span class = "step">Step-6:</span>  Load the output register with zeros.
+The total state of the system is  <img class = "stepsImages"src="images/SAstep-6.jpg" alt = "state of the system">
+
+<br> <br><span class = "step">Step-7:</span>  Apply the transformation - "x^a mod N" to each number in input register and store the result in output register.
+<br><br><img src = "images/TableForExample.jpg" class="TableForExample" alt=" Table ">
+<br> <br><span class = "step">Step-8:</span>  After measuring the output register, it will collapse to 1 result of the transformation 'c' out of 1, 11, 16, 8, 4, and 2 here. 
+<br>Let's select c = 1.
+<br> <br><span class = "step">Step-9:</span>   As the 2 registers are entangled, measuring the output register will partially collapse the input register into an equal superposition of each state between 0 and q-1 that yielded c => All numbers 'y' such that 11^y Mod 21 = 1.
+<br>Then the input register's state is[(1/√86) |0> + (1/√86) |6> + (1/√86) |12> + (1/√86) |18> + (1/√86) |24> + .... ].
+<br> The probabilities here are (1/√86) as our register is in an equal superposition of 86 values which are 0, 6, 12, ..., 510.
+<br> <br><span class = "step">Step-10:</span>  We then apply Quantum Fourier Transform (QFT) on the input register. The QFT takes a state |a> and transforms it into a state :
+<img class = "stepsImages1"src="images/SAstep10jpg.jpg" alt = "state of the system">
+<br>
+<br> <br><span class = "step">Step-11:</span>  After doing the computations with the values y that yield 11^y Mod 21 = 1, we obtain the final state of the input register to be
+<img class = "stepsImages2"src="images/SAstep11jpg.jpg" alt = "state of the system">
+<br>
+<br> <br><span class = "step">Step-12:</span> The QFT will peak the probability amplitudes at the integer multiples of (q/r) i.e. 512/6 as here r is the desired period which is 6 in this case. 
+<br>Thus, the peak probability will be at |85.33>, |170.66>, |256>, .....
+<br>As a result, we do not have an equal superposition of states, and the probability amplitudes of above states are now higher than the other states.
+<br> <br><span class = "step">Step-13:</span>  Then, we measure the state 'm' of register one and with help of q and m, we calculate the period using continuous fraction expansion of the raito of q and m.
+<br> <br><span class = "step">Step-14:</span>  Finally, using the period (P), we calculate the factors of N by taking the GCD of each x^(P/2) + 1 and x^(p/2) - 1 with N using a classical computer. <br>In our case, P = 6 and the factors are : GCD(11^(6/2) +1, 21) = 3 and GCD(11^(6/2) - 1, 21) = 7.
+
+
+    </p>
+  </p>
     </div>
   </div>
   <div class="section wf-section">
     <div data-w-id="d5ba5e87-b9ed-633f-6f62-a83bb76a24a6" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="wrap">
       <div id="circuit" class="title">circuit</div>
     </div>
-    <h2>Shor's Circuit</h2>
+    
     <p class="paragraph-3">Below is the general layout of a quantum circuit that calculates Shor's algorithm.</p>
     <p> To the left are 8 quibits all linked to </p>
     <div id="features" class="feature-wrap">
@@ -107,7 +145,7 @@
         <div data-w-id="4593c4b7-56e8-060a-be57-648b0e08fc65" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="feature-content"></div>
       </div>
       <div class="feature-image"></div>
-    </div><img src="images/shorcircuit.png" width="1074" sizes="100vw" srcset="images/shorcircuit-p-500.png 500w, images/shorcircuit-p-800.png 800w, images/shorcircuit-p-1080.png 1080w, images/shorcircuit.png 1129w" alt="" class="image-2">
+    </div><a href= "circuit.html"target= "blank"><img src="images/shorcircuit.png" width="1074" sizes="100vw" srcset="images/shorcircuit-p-500.png 500w, images/shorcircuit-p-800.png 800w, images/shorcircuit-p-1080.png 1080w, images/shorcircuit.png 1129w" alt="" class="image-2"></a>
     <div class="feature-wrap reverse">
       <div data-w-id="cafe0045-d304-79d9-8f68-af3adaed06e9" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="feature-content"></div>
       <div class="feature-image"></div>
