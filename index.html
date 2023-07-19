@@ -63,7 +63,7 @@
         While in the graph, you can see that the Shor's algorithm has polynomial runtime of d^3.</p>
         <img src = "images/IMG_9394.jpg" alt = "Graph for Shor's vs Classical Algorithm">
      
-      <h2 id="important_terms" text-align:left>Important Terms</h2>
+      <h2 id="important_terms">Important Terms</h2>
       <LI><h4>Quantum Computing:</h4>
         <UL TYPE="circle">
           <li>Quantum computing refers to a paradigm of computing that utilizes the principles of quantum mechanics to perform computational tasks. Unlike classical computers that use bits to represent and process information as either 0 or 1, quantum computers employ quantum bits or qubits.</li>
@@ -86,22 +86,37 @@
        
       <h2 id="process">Process</h2>
       <p class="paragraph-5"><strong>Shor&#x27;s algorithm involves several main steps to factorize a large number efficiently:<br></strong></p>
-      <h3 class="heading-5"><strong>Initialization</strong></h3>
-      <p class="paragraph-6">Start by preparing two sets of qubits: the control qubits and the target qubits. Initialize the control qubits to represent all possible values from 0 to (N-1), where N is the number to be factorized. Initialize the target qubits to a known state.<br></p>
-      <h3 class="heading-5"><strong>Quantum Fourier Transform</strong></h3>
-      <p class="paragraph-6">Apply the Quantum Fourier Transform to the control qubits. The QFT transforms the control qubits from a superposition of values into a superposition of frequency states, revealing the underlying periodicity in the quantum state.<br></p>
-      <h3 class="heading-5"><strong>Modular Exponentiation</strong></h3>
-      <p class="paragraph-6">Apply a modular exponentiation operation to the target qubits based on the value of the control qubits. This operation raises the target qubits to the power of the control qubits modulo N. It effectively computes a function of the form f(x) = a^x mod N, where a is a randomly chosen value.<br></p>
-      <h3 class="heading-5"><strong>Quantum Measurement</strong></h3>
-      <p class="paragraph-6">Perform a quantum measurement on the control qubits. The measurement collapses the superposition, providing a classical output that represents a periodic sequence derived from the quantum state. The measured values provide information related to the factors of the number N.<br></p>
-      <h3 class="heading-5"><strong>Classical Post-processing</strong></h3>
-      <p class="paragraph-6">Take the measurement results and perform classical post-processing. Analyze the measured periodic sequence to extract the period, which is crucial for factorization. This step typically involves applying number theory techniques such as continued fractions to approximate the period.<br></p>
-      <h3 class="heading-5"><strong>Continued Fractions</strong></h3>
-      <p class="paragraph-6">Use continued fraction expansion on the approximations obtained from the previous step to determine the period more accurately. Continued fractions provide rational approximations that reveal the periodic structure of the sequence.<br></p>
-      <h3 class="heading-5"><strong>Greatest Common Divisor (GCD)</strong></h3>
-      <p class="paragraph-6">Calculate the greatest common divisor (GCD) between the factors obtained from the continued fractions and the original number N. The GCD computation helps identify the prime factors of N.<br></p>
-    <h3 class = "heading-5"> </h3>
-    <p class = "paragraph-7">
+      <OL>
+        <LI><h3><strong>Initialization</strong></h3>>
+          <UL TYPE="circle">
+            <li>Start by preparing two sets of qubits: the control qubits and the target qubits. Initialize the control qubits to represent all possible values from 0 to (N-1), where N is the number to be factorized. Initialize the target qubits to a known state.
+          </UL>
+        <LI><h3><strong>Quantum Fourier Transform</strong></h3>
+          <UL TYPE="circle">
+            <li>Apply the Quantum Fourier Transform to the control qubits. The QFT transforms the control qubits from a superposition of values into a superposition of frequency states, revealing the underlying periodicity in the quantum state.
+          </UL>        
+        <LI><h3><strong>Modular Exponentiation</strong></h3>
+          <UL TYPE="circle">
+            <li>Apply a modular exponentiation operation to the target qubits based on the value of the control qubits. This operation raises the target qubits to the power of the control qubits modulo N. It effectively computes a function of the form f(x) = a^x mod N, where a is a randomly chosen value</li>
+          </UL>
+        <LI><h3><strong>Quantum Measurement</strong></h3>
+          <UL TYPE="circle">
+            <li>Perform a quantum measurement on the control qubits. The measurement collapses the superposition, providing a classical output that represents a periodic sequence derived from the quantum state. The measured values provide information related to the factors of the number N.</li>
+          </UL>
+        <LI><h3><strong>Classical Post-processing</strong></h3>
+          <UL TYPE="circle">
+            <li>Take the measurement results and perform classical post-processing. Analyze the measured periodic sequence to extract the period, which is crucial for factorization. This step typically involves applying number theory techniques such as continued fractions to approximate the period.</li>
+          </UL>
+        <LI><h3><strong>Continued Fractions</strong></h3>
+          <UL TYPE="circle">
+            <li>Use continued fraction expansion on the approximations obtained from the previous step to determine the period more accurately. Continued fractions provide rational approximations that reveal the periodic structure of the sequence.</li>
+          </UL>
+        <LI><h3><strong>Greatest Common Divisor (GCD)</strong></h3>
+          <UL TYPE="circle">
+            <li>Calculate the greatest common divisor (GCD) between the factors obtained from the continued fractions and the original number N. The GCD computation helps identify the prime factors of N.</li>
+          </UL>
+      </OL>
+     
       <h3>An example of Shor's Algorithm</h3>
     <p class = "paragraph-7">
      To factor an integer N = 21.<br><br>
