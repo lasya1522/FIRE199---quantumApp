@@ -16,6 +16,26 @@
   <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
   <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
   <link href="images/webclip.png" rel="apple-touch-icon">
+  <style>
+    /* #result {
+        color: white;
+    } */
+    .centered-button {
+        display: flex;
+        justify-content: center;
+    }
+    .center-text {
+        text-align: center;
+    }
+    #step2 {
+        display: none;
+    }
+    input{
+      margin: auto;
+      display: block;
+      text-align: center;
+    }
+  </style>
 </head>
 <body class="body">
   <div class="hero">
@@ -54,10 +74,8 @@
       <div id="introduction" class="title"><h2><strong>Introduction and Application</strong></h2></div>
       <div class="wrapper"></div>
 
-      <h2></h2>
-      <p class="paragraph-7">Are you tired of waiting ages for your computer to crack complex encryption codes? Well, get ready to be blown away by the mind-bending power of Shor&#x27;s algorithm! Picture this: a revolutionary mathematical wizardry that could potentially dismantle the unbreakable walls of modern cryptography in the blink of an eye. Strap in, because we&#x27;re about to embark on a mind-boggling journey through the cutting-edge realm of quantum computing, where Shor&#x27;s algorithm reigns supreme as the ultimate code-cracking superhero. Get ready to have your understanding of computational limits shattered as we dive into the enigmatic world of Shor&#x27;s algorithm and uncover its jaw-dropping implications for the future of security and cryptography.<br></p>
-      <h2>A More Technical Definition</h2>
-      <p class="paragraph-8">Shor&#x27;s algorithm is a groundbreaking mathematical method designed to solve a particular problem: factoring large numbers into their prime factors. It was invented by Peter Shor, a brilliant mathematician, and has become one of the most significant discoveries in the field of quantum computing. Here&#x27;s the gist of it: Traditional computers, like the ones we use every day, struggle to factor large numbers efficiently. This difficulty forms the basis of many encryption systems used to secure online transactions and protect sensitive information. Shor&#x27;s algorithm takes advantage of the unique properties of quantum computers, which operate using quantum bits, or qubits, instead of the classical bits of traditional computers. Qubits can exist in multiple states simultaneously, a phenomenon known as superposition, allowing quantum computers to perform certain calculations at an incredibly accelerated rate. By harnessing this power, Shor&#x27;s algorithm can rapidly find the prime factors of large numbers, a task that would take traditional computers an astronomical amount of time. This ability to factorize large numbers efficiently poses a significant threat to many encryption methods, as it could potentially render them vulnerable to attacks. In simpler terms, Shor&#x27;s algorithm is a quantum magic trick that enables computers to quickly unravel the secrets of large numbers, which has profound implications for breaking encryption codes and challenging the security of many systems that we rely on today.<br></p>
+      <p>Are you tired of waiting ages for your computer to crack complex encryption codes? Well, get ready to be blown away by the mind-bending power of Shor's algorithm! Picture this: a revolutionary mathematical algorithm that could potentially dismantle the walls of modern cryptography. Get ready to have your understanding of computational limits shattered as we dive into the enigmatic world of Shor's algorithm and uncover its jaw-dropping implications for the future of security and cryptography.<br></p>
+      <p>Invented in 1994 by Peter Shor, Shor's algorithm is a groundbreaking mathematical method designed to solve a particular problem: factoring large numbers into their prime factors, something that mathematicians deemed impossible for a long time. <br></p>
 
 
       <h2>Shor's vs Classical Algorithm</h2>
@@ -67,13 +85,19 @@
         While in the graph, you can see that the Shor's algorithm has polynomial runtime of d^3.</p>
         <img src = "images/IMG_9394.jpg" alt = "Graph for Shor's vs Classical Algorithm">
 
+
       <h2 id="important_terms">Important Terms</h2>
 
       <p class="paragraph-7">Are you tired of waiting ages for your computer to crack complex encryption codes? Well, get ready to be blown away by the mind-bending power of Shor's algorithm! Picture this: a revolutionary mathematical algorithm that could potentially dismantle the walls of modern cryptography. Get ready to have your understanding of computational limits shattered as we dive into the enigmatic world of Shor's algorithm and uncover its jaw-dropping implications for the future of security and cryptography.
         Invented in 1994 by Peter Shor, Shor's algorithm is a groundbreaking mathematical method designed to solve a particular problem: factoring large numbers into their prime factors, something that mathematicians deemed impossible for a long time.<br></p>
       <p class="paragraph-8">Why is something as trivial as factoring numbers important? RSA encryption, the encryption methodology used by everyday web browsers, bank accounts, and essentially any link starting with “https://” is based on prime factorization.</p>
       
-      <h2 id="important_terms">Important Terms</h2>
+      
+
+     
+
+      <h2 id="important_terms" text-align:left>Important Terms</h2>
+
       <LI><h4>Quantum Computing:</h4>
         <UL TYPE="circle">
           <li>Quantum computing refers to a paradigm of computing that utilizes the principles of quantum mechanics to perform computational tasks. Unlike classical computers that use bits to represent and process information as either 0 or 1, quantum computers employ quantum bits or qubits.</li>
@@ -96,22 +120,37 @@
        
       <h2 id="process">Process</h2>
       <p class="paragraph-5"><strong>Shor&#x27;s algorithm involves several main steps to factorize a large number efficiently:<br></strong></p>
-      <h3 class="heading-5"><strong>Initialization</strong></h3>
-      <p class="paragraph-6">Start by preparing two sets of qubits: the control qubits and the target qubits. Initialize the control qubits to represent all possible values from 0 to (N-1), where N is the number to be factorized. Initialize the target qubits to a known state.<br></p>
-      <h3 class="heading-5"><strong>Quantum Fourier Transform</strong></h3>
-      <p class="paragraph-6">Apply the Quantum Fourier Transform to the control qubits. The QFT transforms the control qubits from a superposition of values into a superposition of frequency states, revealing the underlying periodicity in the quantum state.<br></p>
-      <h3 class="heading-5"><strong>Modular Exponentiation</strong></h3>
-      <p class="paragraph-6">Apply a modular exponentiation operation to the target qubits based on the value of the control qubits. This operation raises the target qubits to the power of the control qubits modulo N. It effectively computes a function of the form f(x) = a^x mod N, where a is a randomly chosen value.<br></p>
-      <h3 class="heading-5"><strong>Quantum Measurement</strong></h3>
-      <p class="paragraph-6">Perform a quantum measurement on the control qubits. The measurement collapses the superposition, providing a classical output that represents a periodic sequence derived from the quantum state. The measured values provide information related to the factors of the number N.<br></p>
-      <h3 class="heading-5"><strong>Classical Post-processing</strong></h3>
-      <p class="paragraph-6">Take the measurement results and perform classical post-processing. Analyze the measured periodic sequence to extract the period, which is crucial for factorization. This step typically involves applying number theory techniques such as continued fractions to approximate the period.<br></p>
-      <h3 class="heading-5"><strong>Continued Fractions</strong></h3>
-      <p class="paragraph-6">Use continued fraction expansion on the approximations obtained from the previous step to determine the period more accurately. Continued fractions provide rational approximations that reveal the periodic structure of the sequence.<br></p>
-      <h3 class="heading-5"><strong>Greatest Common Divisor (GCD)</strong></h3>
-      <p class="paragraph-6">Calculate the greatest common divisor (GCD) between the factors obtained from the continued fractions and the original number N. The GCD computation helps identify the prime factors of N.<br></p>
-    <h3 class = "heading-5"> </h3>
-    <p class = "paragraph-7">
+      <OL>
+        <LI><h3><strong>Initialization</strong></h3>>
+          <UL TYPE="circle">
+            <li>Start by preparing two sets of qubits: the control qubits and the target qubits. Initialize the control qubits to represent all possible values from 0 to (N-1), where N is the number to be factorized. Initialize the target qubits to a known state.
+          </UL>
+        <LI><h3><strong>Quantum Fourier Transform</strong></h3>
+          <UL TYPE="circle">
+            <li>Apply the Quantum Fourier Transform to the control qubits. The QFT transforms the control qubits from a superposition of values into a superposition of frequency states, revealing the underlying periodicity in the quantum state.
+          </UL>        
+        <LI><h3><strong>Modular Exponentiation</strong></h3>
+          <UL TYPE="circle">
+            <li>Apply a modular exponentiation operation to the target qubits based on the value of the control qubits. This operation raises the target qubits to the power of the control qubits modulo N. It effectively computes a function of the form f(x) = a^x mod N, where a is a randomly chosen value</li>
+          </UL>
+        <LI><h3><strong>Quantum Measurement</strong></h3>
+          <UL TYPE="circle">
+            <li>Perform a quantum measurement on the control qubits. The measurement collapses the superposition, providing a classical output that represents a periodic sequence derived from the quantum state. The measured values provide information related to the factors of the number N.</li>
+          </UL>
+        <LI><h3><strong>Classical Post-processing</strong></h3>
+          <UL TYPE="circle">
+            <li>Take the measurement results and perform classical post-processing. Analyze the measured periodic sequence to extract the period, which is crucial for factorization. This step typically involves applying number theory techniques such as continued fractions to approximate the period.</li>
+          </UL>
+        <LI><h3><strong>Continued Fractions</strong></h3>
+          <UL TYPE="circle">
+            <li>Use continued fraction expansion on the approximations obtained from the previous step to determine the period more accurately. Continued fractions provide rational approximations that reveal the periodic structure of the sequence.</li>
+          </UL>
+        <LI><h3><strong>Greatest Common Divisor (GCD)</strong></h3>
+          <UL TYPE="circle">
+            <li>Calculate the greatest common divisor (GCD) between the factors obtained from the continued fractions and the original number N. The GCD computation helps identify the prime factors of N.</li>
+          </UL>
+      </OL>
+     
       <h3>An example of Shor's Algorithm</h3>
     <p class = "paragraph-7">
      To factor an integer N = 21.<br><br>
@@ -177,13 +216,6 @@ The total state of the system is  <img class = "stepsImages"src="images/SAstep-6
             <li>N is composite (not prime)</li>
             <li>N is not a power of a prime number</li>
           </ul>
-          
-          <textarea id="code-editor"></textarea>
-          
-          <button onclick="runCode()">Run Code</button>
-        </div>
-        <div data-w-id="d5ba5e87-b9ed-633f-6f62-a83bb76a24a6" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="wrap">
-          <div id="circuit" class="title">circuit</div>
         </div>
         <h2>Shor's Circuit</h2>
         <p class="paragraph-3">Below is the general layout of a quantum circuit that calculates Shor's algorithm.</p>
@@ -217,49 +249,68 @@ The total state of the system is  <img class = "stepsImages"src="images/SAstep-6
       </script>
     </body>
    
-    
+  
 
+        <p class="paragraph-2 center-text">Enter a number to be factored (N):</p>
+  <input class="center-text" id="N" type="number">
 
+  <p class="paragraph-2 center-text">Enter another number (a):</p>
+  <input class="center-text" id="a" type="number">
 
-    
-
-   
-
-    
-    
-
-
-    
-
-    <section id="classicalOutput">
-      <h4>Step 2: Modular Exponentiation & Period Finding</h4>
-      <p>After initializing N and a, we find the greatest common divisor (gcd) of a and N</p>
-      <p> We use Euclid's algorithm to calculate gcd(a,N) and so use the formula f(x) = a^x mod N</p>
-      <p> If a^1 mod N = 1, then a is a factor of N and we are done! Although, if not, we will continue this process until gcd(a,N) = 1</p>
-      <button onclick="calculate()">Calculate</button>
-      <p id="result"></p>
-    </section>
-    <section id="quantumOutput">
-
-    </section>
+  <div class="centered-button">
+    <button onclick="calculate()">Calculate</button>
+  </div>
+<div id="step2">
+  <h4 class="heading-7 center-text">Step 2: Modular Exponentiation</h4>
+  <p class="paragraph-2 center-text">After initializing N and a, we find the greatest common divisor (gcd) of a and N. <br> We use Euclid&#x27;s algorithm to calculate gcd(a,N) and so use the formula f(x) = a^x mod N. <br> If a^1 mod N = 1, then a is a factor of N and we are done! Although, if not, we will continue this process until gcd(a,N) = 1<br/></p>
+  <p class="paragraph-2 center-text" id="result"></p>
+</div>
 
 
 <script>
 function calculate() {
   var N = document.getElementById("N").value;
   var a = document.getElementById("a").value;
+  document.getElementById('step2').style.display = 'block';
+
+  // Check if n is greater than 1
+  if (N <= 1) {
+    alert('Please enter a number greater than 1');
+    return;
+  }
+
+  // Check if n is a prime number
+  if (isPrime(N)) {
+    alert('Please enter a composite number (not a prime number)');
+    return;
+  }
+
   // Find the period
   var r = findPeriod(a, N);
+  
   // Calculate p and q
-  var p = gcd(Math.pow(a, r/2) + 1, N);
-  var q = gcd(Math.pow(a, r/2) - 1, N);
-  var stepStr = "Let N = " + N + ", a = " + a + ", and r = " + r + ". <br>";
-  stepStr += "We can find that a^r = " + Math.pow(a, r) + " mod " + N + " = 1. <br>";
-  stepStr += "Then, we calculate (a^(r/2) + 1) = " + (Math.pow(a, r/2) + 1) + " and (a^(r/2) - 1) = " + (Math.pow(a, r/2) - 1) + ". <br>";
+  var ar2Minus1 = (Math.pow(a, r/2) - 1) % N;
+  var ar2Plus1 = (Math.pow(a, r/2) + 1) % N;
+  var p = gcd(N, ar2Minus1);
+  var q = gcd(N, ar2Plus1);
+
+  var stepStr = "Let N = " + N + " and a = " + a + " <br>";
+  stepStr += "We start with the equation a^r = mN + 1, where mN is some multiple of N. <br>";
+  var r2 = 1;
+  var mod = 0;
+  while (mod != 1){
+    mod = Math.pow(a, r2)%N;
+    stepStr += a + "^" + r2 + " = " + mod + " mod " + N + ". <br>";
+    r2 += 1;
+  }
+  stepStr += "We can see that when r = " + r + ", " + Math.pow(a, r) + " mod " + N + " = 1. <br> ";
+  stepStr += "Then, we calculate (a^(r/2) + 1) = " + ar2Plus1 + " and (a^(r/2) - 1) = " + ar2Minus1 + ". <br>";
   stepStr += "The greatest common divisor of (a^(r/2) + 1) and N is " + p + ", and for (a^(r/2) - 1) and N is " + q + ". <br>";
   stepStr += "So, the factors of " + N + " are " + p + " and " + q + ".";
+
   document.getElementById("result").innerHTML = stepStr;
 }
+
 // Helper function to calculate the period
 function findPeriod(a, N) {
   var val = a;
@@ -270,6 +321,7 @@ function findPeriod(a, N) {
   }
   return r;
 }
+
 // Helper function to calculate the greatest common divisor (gcd)
 function gcd(a, b) {
   if (b == 0) {
@@ -278,188 +330,48 @@ function gcd(a, b) {
     return gcd(b, a % b);
   }
 }
-//computes the fourier tranform on an array 'reg'
-//returns the powers of the result, which is enough for finding the dominant frequency/period
-//this is a naive algorithm i know
-function fourier(reg,size) {
-	var freq = new Array(size);
-	for( var i = 0; i < size; i++ ) {
-		var n = new Complex(0,0);
-		for( var j = 0; j < size; j++) {
-			n.a += reg[j]*Math.cos(-2*Math.PI*i*j/size);
-			n.b += reg[j]*Math.sin(-2*Math.PI*i*j/size);
-		}
-		freq[i] = n.power();
-	}
-	return freq;
+
+function isPrime(N) {
+  if (N <= 1) {
+      return false;
+  }
+  if (N <= 3) {
+      return true;
+  }
+  if (N % 2 === 0 || N % 3 === 0) {
+      return false;
+  }
+  var i = 5;
+  while (i * i <= N) {
+      if (N % i === 0 || N % (i + 2) === 0) {
+          return false;
+      }
+      i += 6;
+  }
+  return true;
 }
-
-//represents a complex number , a + bi
-var Complex = Class.create({
-	initialize: function (a,b) {
-		this.a = a;
-		this.b = b;
-	},
-	//returns magnitude on the complex plane
-	magnitude: function () {
-		return Math.sqrt(this.a*this.a + this.b*this.b);
-	},
-	//square of magnitude
-	power: function () {
-		return (this.a*this.a + this.b*this.b);
-	}
-});
-
-
-//represents a quantum register of 'size' qubits
-var QReg = Class.create({
-	initialize: function (size) {
-		this.size = size;
-		//probability of each
-		//possible state of the qubits
-		this.states = Math.pow(2,size);
-		this.probs = new Array(this.states);
-		for( var i = 0; i < this.states; i++ ) {
-			//initializes probabilities equally
-			this.probs[i] = 1;
-		}
-		this.normalize(); 
-		//at this point, measuring the value of QReg
-		//would return a random value between 0 and size-1
-	},
-	//collapses the register and returns 
-	//the decimal value of the measured number
-	measure: function () {
-		var rand = Math.random(); //random 0 <= r < 1
-		var pLess = 0; //stores the probability that we read less than probs[i]
-		var pMore = 0; //stores the probability that we read more than probs[i]
-		
-		//check all probabilities and see if the random number chosen fits in the 'slot' of the given 'i'
-		for( var i = 0; i < this.states; i++ ) {
-			pMore += this.probs[i];
-			if( rand > pLess && rand < pMore ) {
-				//kay, we're measuring this one
-				//collapse state of everything else
-				for( var j = 0; j < this.states; j++ ) {
-					this.probs[j] = (j === i ? 1 : 0); 
-				}
-				//return read value
-				return i;
-			}
-			pLess += this.probs[i];
-		}
-		//uhoh, an error
-		return -1; 
-	},
-	//returns new register transformed throguh
-	//a^x mod n, x represented by the superposition of states
-	//in this register
-	modTransform: function (a,n) {
-		var out = new QReg(this.size);
-		//set output register to 0 first
-		for( var i = 0; i < this.states; i++ ) {
-			out.probs[i] = 0;
-		}
-		//classically calculate the a^x mod n for every
-		//possible state, and increment the probability
-		//for the result in the new register with the probability
-		//of getting that number from this register
-		for( var i = 0; i < this.states; i++ ) {
-			var result = expmod(a,i,n);
-			out.probs[result] += this.probs[i];
-		}
-		out.normalize();
-		//out now represents the superposition 
-		//of all possible outputs of a^x mod n
-		return out;
-		//the quantum register 'out' is entangled with this register
-		//so a measurement on 'out' also collapses positions of
-		//this register inconsistent with the measurement
-		//I couldn't think of a nice OOP way to handle that
-		//so the makeConsistent function makes the current register
-		//consistent with whatever the input measurement is
-	},
-	//makes this register's superposition consistent with
-	//the measurement from the register returned by the 'modTransform'
-	//function with base 'a' and mod 'n'
-	makeConsistent: function (a,n,measured) {
-		//for each possible state, we need to calculate
-		//a^X mod n again, and set the probability
-		//of that state accordingly
-		for( var i = 0; i < this.states; i++ ) {
-			var result = expmod(a,i,n);
-			//if result equals the value measured, this value would occur
-			this.probs[i] = ( result === measured ? 1 : 0 );
-		}
-		this.normalize();
-	},
-	//normalizes the register so the total probablity is 1
-	normalize: function () {
-		//find current total
-		var total = 0;
-		for( var i = 0; i < this.states; i++ ) {
-			total += this.probs[i];
-		}
-		//find scaling factor to reduce total to 1
-		//and apply it to all the states
-		var scale = 1.0 / total;
-		for( var i = 0; i < this.states; i++ ) {
-			this.probs[i] *= scale;
-		}
-	},
-	//returns a new QReg containing the amplitudes of the quantum transform
-	//of this QReg
-	quantFT: function () {
-		//perform regular ol' DFT on the probabilities
-		//of this register
-		var result = fourier(this.probs,this.states);
-		var newReg = new QReg(this.size);
-		//set the probabilities of newReg to the fourier transform
-		newReg.probs = result;
-		newReg.normalize();
-		//newReg now will return a k*this.states/period, where k is
-		//random between 0 < r <= r-1
-		return newReg;
-	},
-	//graphs the pdf of this register 
-	//using Plotr, to element 'e'
-	//with max being the max on the x-axis
-	//drawTicks is bool on whether to draw ticks
-	graph: function(e, max, drawTicks) {
-		//form probabilities
-		var pdf = new Array();
-		var ticks = new Array();
-		for( var i = 0; i < this.states; i++ ) {
-			pdf.push([i, this.probs[i]]);
-			if( i < max ) { ticks.push(i) }
-		}
-		if( !drawTicks ) ticks = null;
-		Flotr.draw(
-			e, 
-			[ pdf ],
-			{	
-				mouse:{
-					track: true,
-					color: 'purple',
-					sensibility: 1, // => distance to show point get's smaller
-					trackDecimals: 4,
-					trackFormatter: function(obj){ return 'x = ' + obj.x +', y = ' + obj.y; }
-				},
-				yaxis: {
-					min: 0, max: null
-				},
-				xaxis: {
-					ticks: ticks,
-					min: 0, max: max
-				},
-				points: {
-					show: true
-				}
-			}
-		);
-	}
-});
 </script>
+
+        <div data-w-id="d5ba5e87-b9ed-633f-6f62-a83bb76a24a6" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="wrap">
+          <div id="circuit" class="title">circuit</div>
+        </div>
+        <h2>Shor's Circuit</h2>
+        <p class="paragraph-3">Below is the general layout of a quantum circuit that calculates Shor's algorithm.</p>
+        <p> To the left are 8 quibits all linked to </p>
+        <div id="features" class="feature-wrap">
+          <div>
+            <div data-w-id="4593c4b7-56e8-060a-be57-648b0e08fc65" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="feature-content"></div>
+          </div>
+          <div class="feature-image"></div>
+        </div><img href="circuit.html" target ="blank" src="images/shorcircuit.png" width="1074" sizes="100vw" srcset="images/shorcircuit-p-500.png 500w, images/shorcircuit-p-800.png 800w, images/shorcircuit-p-1080.png 1080w, images/shorcircuit.png 1129w" alt="" class="image-2">
+        <div class="feature-wrap reverse">
+          <div data-w-id="cafe0045-d304-79d9-8f68-af3adaed06e9" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="feature-content"></div>
+          <div class="feature-image"></div>
+        </div>
+      </section>
+    </body>
+
+
     </div>
   </div>
   <div class="bottom-image-wrap"></div>
