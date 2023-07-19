@@ -61,7 +61,7 @@ a {
 .section.center {
   height: 100vh;
   background-color: #0026cf;
-  background-image: linear-gradient(#1130dd, #1c0e3f 56%);
+  background-image: linear-gradient(#1130dd, #1c0e3f);
   justify-content: center;
   align-items: flex-start;
   padding-top: 0;
@@ -125,13 +125,13 @@ a {
 
 .section.wide.img {
   background-color: #1c0e3f;
-  background-image: none;
+  background-image: linear-gradient(#1c0e3f, #1c0e3f);
   padding-bottom: 0;
 }
 
 .section.wide.purple {
   background-image: linear-gradient(#5120a2, #1f0433 100%, #602bb6);
-  padding-top: 15vh;
+  padding-top: 5vh;
   padding-bottom: 15vh;
 }
 
@@ -187,11 +187,13 @@ a {
   z-index: 999999;
   width: 100%;
   height: auto;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: #0026cf;
+  background-image: linear-gradient(#0026cf, #602bb6);
   border: 1px #000;
   padding: 0 10vw;
   display: flex;
-  position: absolute;
+  position: -webkit-sticky;
+  position: sticky;
   top: 0;
   left: 0;
 }
@@ -212,6 +214,8 @@ a {
   padding-top: 0;
   padding-bottom: 0;
   display: flex;
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 .body {
@@ -429,8 +433,8 @@ a {
 .wrap {
   max-width: 700px;
   text-align: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .title {
@@ -438,9 +442,11 @@ a {
   letter-spacing: 2px;
   text-transform: uppercase;
   border-bottom: 1px #2e2e2e;
+  align-self: center;
   padding-bottom: 5px;
   font-size: 12px;
   display: inline-block;
+  position: static;
 }
 
 .title.white {
@@ -548,6 +554,10 @@ a {
 .nav-link:hover {
   color: #fff;
   box-shadow: inset 0 -5px #fc0a7e;
+}
+
+.nav-link.w--current {
+  color: #fff;
 }
 
 .nav-menu {
@@ -860,6 +870,11 @@ a {
   flex: none;
 }
 
+.nav-menu-2 {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
 .image-licensing {
   background-color: rgba(0, 0, 0, .05);
   border: 1px solid rgba(0, 0, 0, .1);
@@ -877,15 +892,18 @@ a {
 .text-block-3 {
   color: #fff;
   font-size: 16px;
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 .paragraph-2 {
   color: #fff;
   flex: 0 auto;
+  margin-bottom: 0;
 }
 
 .paragraph-3 {
-  color: #acacac;
+  color: #fff;
 }
 
 .text-block-4 {
@@ -905,18 +923,18 @@ a {
 
 .heading-4 {
   color: #fd9404;
+  margin-top: 20px;
+  margin-bottom: 0;
 }
 
-.bold-text {
-  color: #ae0c00;
-}
-
-.paragraph-6, .paragraph-7, .paragraph-8 {
+.bold-text, .paragraph-6, .paragraph-7, .paragraph-8 {
   color: #fff;
 }
 
 .heading-5 {
-  color: #fd9404;
+  color: #fff;
+  margin-top: 40px;
+  margin-bottom: 10px;
 }
 
 .heading-6 {
@@ -924,7 +942,114 @@ a {
 }
 
 .html-embed {
-  margin-bottom: 0;
+  margin-bottom: 100px;
+}
+
+.column-2 {
+  display: flex;
+}
+
+.heading-7 {
+  order: 0;
+  align-self: center;
+  margin-left: 0;
+  display: block;
+}
+
+.list-item, .list-item-2 {
+  color: #fff;
+}
+
+.heading-8 {
+  margin-top: 40px;
+}
+
+.heading-9 {
+  margin-top: 20px;
+}
+
+.heading-10 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.list-2 {
+  list-style-type: disc;
+}
+
+.list-item-3 {
+  color: #fff;
+  text-align: left;
+}
+
+.list-item-4 {
+  color: #fff;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.list-item-5 {
+  margin-top: 10px;
+}
+
+.bold-text-2, .bold-text-3, .bold-text-4, .bold-text-5, .text-block-5, .test {
+  color: #fff;
+}
+
+.text-span, .text-span-2 {
+  color: orange;
+}
+
+.paragraph-9 {
+  color: #fff;
+}
+
+.text-span-3, .text-span-4, .text-span-5, .text-span-6 {
+  color: orange;
+}
+
+.image-5 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.paragraph-10 {
+  color: #fff;
+}
+
+.image-6 {
+  margin-bottom: 20px;
+}
+
+.text-span-7 {
+  color: orange;
+}
+
+.image-7 {
+  display: inline-block;
+}
+
+.container {
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-columns: 1fr;
+  justify-content: space-around;
+  display: flex;
+}
+
+.image-8, .image-9 {
+  margin-bottom: 20px;
+}
+
+.text-span-8, .text-span-9, .text-span-10, .text-span-11, .text-span-12, .text-span-13, .text-span-14 {
+  color: orange;
+}
+
+.text-block-6 {
+  color: #fff;
+  margin-bottom: 40px;
 }
 
 @media screen and (max-width: 991px) {
@@ -1183,6 +1308,9 @@ a {
 
   .image-2 {
     width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .button-wrap {
@@ -1240,28 +1368,6 @@ a {
     text-align: center;
   }
 
-  
 }
 
-.stepsImages{
-  width: 200px;
-  height: 80px;
-}
 
-.stepsImages1{
-  width: 300px;
-  height: 80px;
-}
-
-.stepsImages2{
-  width: 380px;
-  height: 80px;
-}
-.step{
-  color: orange;
-}
-
-.TableForExample{
-  width: 300px;
-  height: 1000px;
-}
