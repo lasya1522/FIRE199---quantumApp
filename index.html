@@ -74,10 +74,8 @@
       <div id="introduction" class="title"><h2><strong>Introduction and Application</strong></h2></div>
       <div class="wrapper"></div>
 
-      <h2></h2>
-      <p class="paragraph-7">Are you tired of waiting ages for your computer to crack complex encryption codes? Well, get ready to be blown away by the mind-bending power of Shor&#x27;s algorithm! Picture this: a revolutionary mathematical wizardry that could potentially dismantle the unbreakable walls of modern cryptography in the blink of an eye. Strap in, because we&#x27;re about to embark on a mind-boggling journey through the cutting-edge realm of quantum computing, where Shor&#x27;s algorithm reigns supreme as the ultimate code-cracking superhero. Get ready to have your understanding of computational limits shattered as we dive into the enigmatic world of Shor&#x27;s algorithm and uncover its jaw-dropping implications for the future of security and cryptography.<br></p>
-      <h2>A More Technical Definition</h2>
-      <p class="paragraph-8">Shor&#x27;s algorithm is a groundbreaking mathematical method designed to solve a particular problem: factoring large numbers into their prime factors. It was invented by Peter Shor, a brilliant mathematician, and has become one of the most significant discoveries in the field of quantum computing. Here&#x27;s the gist of it: Traditional computers, like the ones we use every day, struggle to factor large numbers efficiently. This difficulty forms the basis of many encryption systems used to secure online transactions and protect sensitive information. Shor&#x27;s algorithm takes advantage of the unique properties of quantum computers, which operate using quantum bits, or qubits, instead of the classical bits of traditional computers. Qubits can exist in multiple states simultaneously, a phenomenon known as superposition, allowing quantum computers to perform certain calculations at an incredibly accelerated rate. By harnessing this power, Shor&#x27;s algorithm can rapidly find the prime factors of large numbers, a task that would take traditional computers an astronomical amount of time. This ability to factorize large numbers efficiently poses a significant threat to many encryption methods, as it could potentially render them vulnerable to attacks. In simpler terms, Shor&#x27;s algorithm is a quantum magic trick that enables computers to quickly unravel the secrets of large numbers, which has profound implications for breaking encryption codes and challenging the security of many systems that we rely on today.<br></p>
+      <p>Are you tired of waiting ages for your computer to crack complex encryption codes? Well, get ready to be blown away by the mind-bending power of Shor's algorithm! Picture this: a revolutionary mathematical algorithm that could potentially dismantle the walls of modern cryptography. Get ready to have your understanding of computational limits shattered as we dive into the enigmatic world of Shor's algorithm and uncover its jaw-dropping implications for the future of security and cryptography.<br></p>
+      <p>Invented in 1994 by Peter Shor, Shor's algorithm is a groundbreaking mathematical method designed to solve a particular problem: factoring large numbers into their prime factors, something that mathematicians deemed impossible for a long time. <br></p>
 
 
       <h2>Shor's vs Classical Algorithm</h2>
@@ -87,13 +85,22 @@
         While in the graph, you can see that the Shor's algorithm has polynomial runtime of d^3.</p>
         <img src = "images/IMG_9394.jpg" alt = "Graph for Shor's vs Classical Algorithm">
 
+
       <h2 id="important_terms">Important Terms</h2>
 
       <p class="paragraph-7">Are you tired of waiting ages for your computer to crack complex encryption codes? Well, get ready to be blown away by the mind-bending power of Shor's algorithm! Picture this: a revolutionary mathematical algorithm that could potentially dismantle the walls of modern cryptography. Get ready to have your understanding of computational limits shattered as we dive into the enigmatic world of Shor's algorithm and uncover its jaw-dropping implications for the future of security and cryptography.
         Invented in 1994 by Peter Shor, Shor's algorithm is a groundbreaking mathematical method designed to solve a particular problem: factoring large numbers into their prime factors, something that mathematicians deemed impossible for a long time.<br></p>
       <p class="paragraph-8">Why is something as trivial as factoring numbers important? RSA encryption, the encryption methodology used by everyday web browsers, bank accounts, and essentially any link starting with “https://” is based on prime factorization.</p>
       
+      
+
+     
+<<<<<<< HEAD
       <h2 id="important_terms">Important Terms</h2>
+=======
+      <h2 id="important_terms" text-align:left>Important Terms</h2>
+
+>>>>>>> 1a0ce57cbdd73caa7653fa8a79918abcdf9de947
       <LI><h4>Quantum Computing:</h4>
         <UL TYPE="circle">
           <li>Quantum computing refers to a paradigm of computing that utilizes the principles of quantum mechanics to perform computational tasks. Unlike classical computers that use bits to represent and process information as either 0 or 1, quantum computers employ quantum bits or qubits.</li>
@@ -116,22 +123,37 @@
        
       <h2 id="process">Process</h2>
       <p class="paragraph-5"><strong>Shor&#x27;s algorithm involves several main steps to factorize a large number efficiently:<br></strong></p>
-      <h3 class="heading-5"><strong>Initialization</strong></h3>
-      <p class="paragraph-6">Start by preparing two sets of qubits: the control qubits and the target qubits. Initialize the control qubits to represent all possible values from 0 to (N-1), where N is the number to be factorized. Initialize the target qubits to a known state.<br></p>
-      <h3 class="heading-5"><strong>Quantum Fourier Transform</strong></h3>
-      <p class="paragraph-6">Apply the Quantum Fourier Transform to the control qubits. The QFT transforms the control qubits from a superposition of values into a superposition of frequency states, revealing the underlying periodicity in the quantum state.<br></p>
-      <h3 class="heading-5"><strong>Modular Exponentiation</strong></h3>
-      <p class="paragraph-6">Apply a modular exponentiation operation to the target qubits based on the value of the control qubits. This operation raises the target qubits to the power of the control qubits modulo N. It effectively computes a function of the form f(x) = a^x mod N, where a is a randomly chosen value.<br></p>
-      <h3 class="heading-5"><strong>Quantum Measurement</strong></h3>
-      <p class="paragraph-6">Perform a quantum measurement on the control qubits. The measurement collapses the superposition, providing a classical output that represents a periodic sequence derived from the quantum state. The measured values provide information related to the factors of the number N.<br></p>
-      <h3 class="heading-5"><strong>Classical Post-processing</strong></h3>
-      <p class="paragraph-6">Take the measurement results and perform classical post-processing. Analyze the measured periodic sequence to extract the period, which is crucial for factorization. This step typically involves applying number theory techniques such as continued fractions to approximate the period.<br></p>
-      <h3 class="heading-5"><strong>Continued Fractions</strong></h3>
-      <p class="paragraph-6">Use continued fraction expansion on the approximations obtained from the previous step to determine the period more accurately. Continued fractions provide rational approximations that reveal the periodic structure of the sequence.<br></p>
-      <h3 class="heading-5"><strong>Greatest Common Divisor (GCD)</strong></h3>
-      <p class="paragraph-6">Calculate the greatest common divisor (GCD) between the factors obtained from the continued fractions and the original number N. The GCD computation helps identify the prime factors of N.<br></p>
-    <h3 class = "heading-5"> </h3>
-    <p class = "paragraph-7">
+      <OL>
+        <LI><h3><strong>Initialization</strong></h3>>
+          <UL TYPE="circle">
+            <li>Start by preparing two sets of qubits: the control qubits and the target qubits. Initialize the control qubits to represent all possible values from 0 to (N-1), where N is the number to be factorized. Initialize the target qubits to a known state.
+          </UL>
+        <LI><h3><strong>Quantum Fourier Transform</strong></h3>
+          <UL TYPE="circle">
+            <li>Apply the Quantum Fourier Transform to the control qubits. The QFT transforms the control qubits from a superposition of values into a superposition of frequency states, revealing the underlying periodicity in the quantum state.
+          </UL>        
+        <LI><h3><strong>Modular Exponentiation</strong></h3>
+          <UL TYPE="circle">
+            <li>Apply a modular exponentiation operation to the target qubits based on the value of the control qubits. This operation raises the target qubits to the power of the control qubits modulo N. It effectively computes a function of the form f(x) = a^x mod N, where a is a randomly chosen value</li>
+          </UL>
+        <LI><h3><strong>Quantum Measurement</strong></h3>
+          <UL TYPE="circle">
+            <li>Perform a quantum measurement on the control qubits. The measurement collapses the superposition, providing a classical output that represents a periodic sequence derived from the quantum state. The measured values provide information related to the factors of the number N.</li>
+          </UL>
+        <LI><h3><strong>Classical Post-processing</strong></h3>
+          <UL TYPE="circle">
+            <li>Take the measurement results and perform classical post-processing. Analyze the measured periodic sequence to extract the period, which is crucial for factorization. This step typically involves applying number theory techniques such as continued fractions to approximate the period.</li>
+          </UL>
+        <LI><h3><strong>Continued Fractions</strong></h3>
+          <UL TYPE="circle">
+            <li>Use continued fraction expansion on the approximations obtained from the previous step to determine the period more accurately. Continued fractions provide rational approximations that reveal the periodic structure of the sequence.</li>
+          </UL>
+        <LI><h3><strong>Greatest Common Divisor (GCD)</strong></h3>
+          <UL TYPE="circle">
+            <li>Calculate the greatest common divisor (GCD) between the factors obtained from the continued fractions and the original number N. The GCD computation helps identify the prime factors of N.</li>
+          </UL>
+      </OL>
+     
       <h3>An example of Shor's Algorithm</h3>
     <p class = "paragraph-7">
      To factor an integer N = 21.<br><br>
