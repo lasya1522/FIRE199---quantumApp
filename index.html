@@ -95,12 +95,9 @@
       
 
      
-<<<<<<< HEAD
-      <h2 id="important_terms">Important Terms</h2>
-=======
+
       <h2 id="important_terms" text-align:left>Important Terms</h2>
 
->>>>>>> 1a0ce57cbdd73caa7653fa8a79918abcdf9de947
       <LI><h4>Quantum Computing:</h4>
         <UL TYPE="circle">
           <li>Quantum computing refers to a paradigm of computing that utilizes the principles of quantum mechanics to perform computational tasks. Unlike classical computers that use bits to represent and process information as either 0 or 1, quantum computers employ quantum bits or qubits.</li>
@@ -220,6 +217,39 @@ The total state of the system is  <img class = "stepsImages"src="images/SAstep-6
             <li>N is not a power of a prime number</li>
           </ul>
         </div>
+        <h2>Shor's Circuit</h2>
+        <p class="paragraph-3">Below is the general layout of a quantum circuit that calculates Shor's algorithm.</p>
+        <p>Click on the circuit to know more</p>
+        <div id="features" class="feature-wrap">
+          <div>
+            <div data-w-id="4593c4b7-56e8-060a-be57-648b0e08fc65" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="feature-content"></div>
+          </div>
+          <div class="feature-image"></div>
+          
+        </div><a href="circuit.html" target ="blank"><img  src="images/shorcircuit.png" width="1074" sizes="100vw" srcset="images/shorcircuit-p-500.png 500w, images/shorcircuit-p-800.png 800w, images/shorcircuit-p-1080.png 1080w, images/shorcircuit.png 1129w" alt="" class="image-2"></a>
+        <div class="feature-wrap reverse">
+          <div data-w-id="cafe0045-d304-79d9-8f68-af3adaed06e9" style="-webkit-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 40PX, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="feature-content"></div>
+          <div class="feature-image"></div>
+        </div>
+      </section>
+      
+      
+      <script>
+        function runCode() {
+          const code = document.getElementById("code-editor").value;
+          
+          try {
+            // Execute the code here
+            const output = BrythonRunner.run(code);
+            console.log(output);
+          } catch (error) {
+            console.error(error);
+          }
+        }
+      </script>
+    </body>
+   
+  
 
         <p class="paragraph-2 center-text">Enter a number to be factored (N):</p>
   <input class="center-text" id="N" type="number">
